@@ -1,0 +1,14 @@
+{
+  "name": "miniscape",
+  "description": "",
+  "authors": [
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+  }
+}

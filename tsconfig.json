@@ -1,0 +1,14 @@
+{
+    "files": [
+        "client/js/main.ts"
+    ],
+    "compilerOptions": {
+        "allowJs": true,
+        "allowUnreachableCode": true,
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "target": "es5"
+    }
+}
