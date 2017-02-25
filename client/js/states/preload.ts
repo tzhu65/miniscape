@@ -4,7 +4,8 @@ class Preload extends Phaser.State {
     console.log("preload preload");
 
     // preload required assets
-    this.game.load.image("isaac", "img/isaac.png");
+    this.game.load.image('isaac', 'img/isaac.png');
+    this.game.load.image('ground', 'img/ground57.png');
   }
 
   public create() {

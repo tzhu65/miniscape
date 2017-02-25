@@ -3,6 +3,7 @@ class Main extends Phaser.State {
   cursors : any;
   player: any;
   wasd: any;
+  platforms: any;
 
   public preload() {
     console.log("main preload");
@@ -12,7 +13,7 @@ class Main extends Phaser.State {
   public create() {
     console.log("main create");
     this.cursors = this.game.input.keyboard.createCursorKeys();
-    this.player = this.game.add.sprite(0, 0, 'isaac');
+    this.player = this.game.add.sprite(this.game.width/2, this.game.height/2, 'isaac');
     this.wasd = {
       w: this.game.input.keyboard.addKey(Phaser.Keyboard.W),
       s: this.game.input.keyboard.addKey(Phaser.Keyboard.S),
@@ -26,9 +27,26 @@ class Main extends Phaser.State {
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
     this.game.stage.backgroundColor = "#cecece";
+
+    this.platforms = this.game.add.group();
+    this.platforms.enableBody = true;
+
+    for (var i=100; i<this.game.world.height - 50; i+=50){
+      var wall = this.platforms.create(i, 50, 'ground');
+      wall.body.immovable = true;
+      wall = this.platforms.create(50, i, 'ground');
+      wall.body.immovable = true;
+      wall = this.platforms.create(this.game.world.height - 50, i, 'ground');
+      wall.body.immovable = true;
+      wall = this.platforms.create(i, this.game.world.height - 50, 'ground');
+      wall.body.immovable = true;
+    }
   }
 
   public update() {
+
+    var hitPlatform = this.game.physics.arcade.collide(this.player, this.platforms);
+
     this.player.body.velocity.x = 0;
     this.player.body.velocity.y = 0;
 
