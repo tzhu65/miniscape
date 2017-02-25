@@ -9,3 +9,4 @@
  */
 import App from "./app";
 let game = new App();
+

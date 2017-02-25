@@ -4,11 +4,12 @@ class Preload extends Phaser.State {
     console.log("preload preload");
 
     // preload required assets
-    this.game.load.image("ground47", "img/ground47.png");
+    this.game.load.image("isaac", "img/isaac.png");
   }
 
   public create() {
     console.log("preload create");
+    //this.game.add.sprite(0, 0, 'isaac');
     this.game.state.start("main");
   }
 
